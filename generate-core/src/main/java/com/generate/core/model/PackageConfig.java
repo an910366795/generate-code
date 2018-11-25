@@ -18,6 +18,8 @@ public class PackageConfig {
     private String baseJava = "src.main.java";
     //基本资源路径
     private String baseResource = "src.main.resources";
+    //主类路径
+    private String mainPath = "com";
     //maapper（dao）包的位置
     private String mapperPath = "com.web.dao";
     //service 包的位置

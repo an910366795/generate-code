@@ -33,6 +33,7 @@ public class ControllerBuilder extends AbstractBuilder {
 
     @Override
     public AbstractBuilder generateFile() throws Exception {
+        outputFile("application", null);
         outputFile("baseController", null);
         outputFile("errorController", null);
 
@@ -56,7 +57,11 @@ public class ControllerBuilder extends AbstractBuilder {
 
         String filePath = "";
         String templatePath = "";
-        if (type.equals("baseController")) {
+        if (type.equals("application")) {
+            filePath = (packageConfig.getBasePath() + "/" + packageConfig.getBaseJava() + "/" + packageConfig.getMainPath() ).replaceAll("\\.","/")
+                    + "//Application" + GlobalConstants.JAVA_SUFFIX;
+            templatePath = GlobalConstants.TEMPLATE_PATH_APPLICATION;
+        } else if (type.equals("baseController")) {
             filePath = getPath() + "//BaseController" + GlobalConstants.JAVA_SUFFIX;
             templatePath = GlobalConstants.TEMPLATE_PATH_BASECONTROLLER;
         } else if (type.equals("errorController")) {

@@ -48,6 +48,8 @@ public class GlobalConstants {
     public static final String TEMPLATE_PATH_MAPPER = "/templates/mapper.ftl";
     //entity模板地址
     public static final String TEMPLATE_PATH_ENTITY = "/templates/entity.ftl";
+    //application模板地址
+    public static final String TEMPLATE_PATH_APPLICATION = "/templates/common/Application.ftl";
     //BaseController模板地址
     public static final String TEMPLATE_PATH_BASECONTROLLER = "/templates/controller/BaseController.ftl";
     //ErrorController模板地址
