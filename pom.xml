@@ -12,7 +12,7 @@
         <module>generate-core</module>
         <module>generate-base</module>
         <module>generate-db</module>
-        <module>generate-util</module>
+        <module>generate-common</module>
     </modules>
 
     <dependencies>
@@ -53,9 +53,13 @@
             <version>5.1.45</version>
         </dependency>
 
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.1.21</version>
+        </dependency>
 
     </dependencies>
-
 
     <build>
         <plugins>

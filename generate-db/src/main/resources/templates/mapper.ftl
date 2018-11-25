@@ -1,7 +1,7 @@
 package ${package.mapperPath}.${table.datasourceName};
 
 import ${package.mapperPath}.BaseMapper;
-import ${package.entityPath}.${entityName};
+import ${package.entityPath}.${table.datasourceName}.${entityName};
 
 /**
  * @Description:表${table.tableName}对应的Mapper

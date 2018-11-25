@@ -1,4 +1,4 @@
-package ${package.entityPath};
+package ${package.entityPath}.${table.datasourceName};
 
 import javax.persistence.Column;
 import javax.persistence.Id;

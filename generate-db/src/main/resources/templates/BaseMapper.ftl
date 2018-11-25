@@ -49,15 +49,17 @@ public interface BaseMapper<T> extends Mapper<T> {
     default List<T> getList(Map<String, Object> params) {
         Example example = this.getExample();
         Example.Criteria criteria = example.createCriteria();
-        criteria.andEqualTo(params);
+        if (params != null && params.size() > 0) {
+            criteria.andEqualTo(params);
 
-        Object orderByDesc = params.get(ORDER_BY_DESC);
-        if (orderByDesc != null && (orderByDesc + "") != "") {
-            example.orderBy(orderByDesc + "").desc();
-        }
-        Object orderAsc = params.get(ORDER_BY_ASC);
-        if (orderAsc != null && (orderAsc + "") != "") {
-            example.orderBy(orderAsc + "").asc();
+            Object orderByDesc = params.get(ORDER_BY_DESC);
+            if (orderByDesc != null && (orderByDesc + "") != "") {
+                example.orderBy(orderByDesc + "").desc();
+            }
+            Object orderAsc = params.get(ORDER_BY_ASC);
+            if (orderAsc != null && (orderAsc + "") != "") {
+                example.orderBy(orderAsc + "").asc();
+            }
         }
 
         return this.selectByExample(example);
@@ -89,15 +91,15 @@ public interface BaseMapper<T> extends Mapper<T> {
         Example.Criteria criteria = example.createCriteria();
         if (params != null && params.size() > 0) {
             criteria.andEqualTo(params);
-        }
 
-        Object orderByDesc = params.get(ORDER_BY_DESC);
-        if (orderByDesc != null && (orderByDesc + "") != "") {
-            example.orderBy(orderByDesc + "").desc();
-        }
-        Object orderAsc = params.get(ORDER_BY_ASC);
-        if (orderAsc != null && (orderAsc + "") != "") {
-            example.orderBy(orderAsc + "").asc();
+            Object orderByDesc = params.get(ORDER_BY_DESC);
+            if (orderByDesc != null && (orderByDesc + "") != "") {
+                example.orderBy(orderByDesc + "").desc();
+            }
+            Object orderAsc = params.get(ORDER_BY_ASC);
+            if (orderAsc != null && (orderAsc + "") != "") {
+                example.orderBy(orderAsc + "").asc();
+            }
         }
 
         List listData = this.selectByExample(example);

@@ -28,14 +28,32 @@ public class GlobalConstants {
     public static final String TEMPLATE_PATH_POM = "/templates/pom.ftl";
     //ignore模板地址
     public static final String TEMPLATE_PATH_IGNORE = "/templates/ignore.ftl";
+    //日志模板地址
+    public static final String TEMPLATE_PATH_LOGBACK = "/templates/logback.ftl";
+    //yml模板地址
+    public static final String TEMPLATE_PATH_YML = "/templates/yml.ftl";
+    //commonResult模板地址
+    public static final String TEMPLATE_PATH_COMMONRESULT = "/templates/common/CommonResult.ftl";
+    //MsgConstants模板地址
+    public static final String TEMPLATE_PATH_MSGCONSTANTS = "/templates/common/MsgConstants.ftl";
+    //ResultUtil模板地址
+    public static final String TEMPLATE_PATH_RESULTUTIL = "/templates/common/ResultUtil.ftl";
+    //ParamException模板地址
+    public static final String TEMPLATE_PATH_PARAMEXCEPTION = "/templates/common/Paramexception.ftl";
+    //CommonException模板地址
+    public static final String TEMPLATE_PATH_COMMONEXCEPTION = "/templates/common/CommonException.ftl";
     //基础mapper模板地址
     public static final String TEMPLATE_PATH_BASE_MAPPER = "/templates/baseMapper.ftl";
     //mapper模板地址
     public static final String TEMPLATE_PATH_MAPPER = "/templates/mapper.ftl";
     //entity模板地址
     public static final String TEMPLATE_PATH_ENTITY = "/templates/entity.ftl";
-    //controller模板地址
-    public static final String TEMPLATE_PATH_CONTROLLER = "/templates/controller.ftl";
+    //BaseController模板地址
+    public static final String TEMPLATE_PATH_BASECONTROLLER = "/templates/controller/BaseController.ftl";
+    //ErrorController模板地址
+    public static final String TEMPLATE_PATH_ERRORCONTROLLER = "/templates/controller/ErrorController.ftl";
+    //OtherController模板地址
+    public static final String TEMPLATE_PATH_OTHERCONTROLLER= "/templates/controller/OtherController.ftl";
     //service模板地址
-    public static final String TEMPLATE_PATH_SERVICE = "/templates/service.ftl";
+    public static final String TEMPLATE_PATH_SERVICE = "/templates/service/OtherService.ftl";
 }

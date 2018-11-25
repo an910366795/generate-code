@@ -26,10 +26,12 @@
         </dependency>
 
         <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>4.1.21</version>
+            <groupId>com.generate</groupId>
+            <artifactId>generate-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
         </dependency>
+
+
     </dependencies>
 
 </project>
