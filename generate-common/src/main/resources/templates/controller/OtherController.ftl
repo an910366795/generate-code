@@ -44,7 +44,7 @@ public class ${entityName}Controller extends BaseController {
     /**
      * 新增
      *
-     * @param order 请求参数
+     * @param ${paramName} 请求参数
      */
     @PostMapping
     public CommonResult add${entityName}(${entityName} ${paramName}) {
@@ -57,7 +57,7 @@ public class ${entityName}Controller extends BaseController {
      * 更新
      *
      * @param id    主键
-     * @param order 更新信息
+     * @param ${paramName} 更新信息
      */
     @PutMapping("/{id}")
     public CommonResult update${entityName}(@PathVariable("id") String id, ${entityName} ${paramName}) {

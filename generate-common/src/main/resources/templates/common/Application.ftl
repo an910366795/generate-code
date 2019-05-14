@@ -12,7 +12,7 @@ import tk.mybatis.spring.annotation.MapperScan;
  */
 @SpringBootApplication
 @ComponentScan("com.web")
-@MapperScan("com.web.dao.sys")
+@MapperScan("com.web.dao.pao")
 public class Application {
 
     public static void main(String[] args) {

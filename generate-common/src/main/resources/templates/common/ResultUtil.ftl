@@ -30,7 +30,7 @@ public class ResultUtil {
      */
     public static CommonResult success(String msg) {
         CommonResult result = new CommonResult();
-        result.setCode(com.common.util.ResultUtil.SUCCESS_CODE);
+        result.setCode(ResultUtil.SUCCESS_CODE);
 
         if (msg == null || msg == "") {
             msg = MsgConstants.MSG_1000;

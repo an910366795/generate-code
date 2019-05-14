@@ -12,6 +12,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Properties;
 
 @Slf4j
 @Getter
@@ -24,6 +25,8 @@ public class DataSourceBuilder extends AbstractBuilder {
     private List<String> excludeTableList = new ArrayList<>();
     //包含的表
     private List<String> includeTableList = new ArrayList<>();
+    //全局配置
+    private Properties properties;
 
 
     public DataSourceBuilder(PackageConfig packageConfig, MysqlDbConfig mysqlDbConfig) {
@@ -35,6 +38,13 @@ public class DataSourceBuilder extends AbstractBuilder {
         this.packageConfig = packageConfig;
         this.mysqlDbConfig = mysqlDbConfig;
         this.isForceCover = isForceCover;
+    }
+
+    public DataSourceBuilder(PackageConfig packageConfig,Properties properties ,MysqlDbConfig mysqlDbConfig, boolean isForceCover) {
+        this.packageConfig = packageConfig;
+        this.mysqlDbConfig = mysqlDbConfig;
+        this.isForceCover = isForceCover;
+        this.properties = properties;
     }
 
 
@@ -94,9 +104,10 @@ public class DataSourceBuilder extends AbstractBuilder {
 
     @Override
     public AbstractBuilder generateFile() throws Exception {
+        //获取配置信息（包含的表，排除的表）
+        getConfig(properties);
         //获取表信息并处理
         List<TableInfo> autoTableList = processTableList(mysqlDbConfig.getTableInfo());
-
         //输出基础mapper
         outputFile("baseMapper", null);
 
@@ -107,6 +118,27 @@ public class DataSourceBuilder extends AbstractBuilder {
             outputFile("entity", tableInfo);
         }
         return this;
+    }
+
+
+    private void getConfig(Properties properties) {
+        if (properties != null) {
+            //包含的表
+            String includes = (String) properties.get("db_include_table");
+            if (includes != null && includes != "") {
+                for (String table : includes.split(",")) {
+                    this.addIncludeTable(table);
+                }
+            }
+            //排除的表
+            String expects = (String) properties.get("db_expect_table");
+            if (expects != null && expects != "") {
+                for (String table : expects.split(",")) {
+                    this.addExcludeTable(table);
+                }
+            }
+        }
+
     }
 
     @Override

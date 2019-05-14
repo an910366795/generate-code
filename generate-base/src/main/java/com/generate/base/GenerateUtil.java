@@ -39,15 +39,25 @@ public class GenerateUtil {
             MysqlDbConfig dbConfig = new MysqlDbConfig(url, username, password);
 
             //生成基本信息（包含包的信息，pom文件的信息）
-//            generateBase(properties, dbConfig);
+            if (properties.get("base_enable").equals("true")) {
+                generateBase(properties, dbConfig);
+            }
             //生成common信息
-//            generateCommon(properties);
-            //生成数据库信息
-            generateDb(properties, dbConfig);
+            if (properties.get("common_enable").equals("true")) {
+                generateCommon(properties);
+            }
             //生成controller信息
-//            generateController(properties, dbConfig);
+            if (properties.get("controller_enable").equals("true")) {
+                generateController(properties, dbConfig);
+            }
             //生成service信息
-//            generateService(properties, dbConfig);
+            if (properties.get("service_enable").equals("true")) {
+                generateService(properties, dbConfig);
+            }
+            //生成数据库信息
+            if (properties.get("db_enable").equals("true")) {
+                generateDb(properties, dbConfig);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -86,8 +96,7 @@ public class GenerateUtil {
      */
     private void generateDb(Properties properties, MysqlDbConfig mysqlDbConfig) throws Exception {
 
-        DataSourceBuilder dataSourceBuilder = new DataSourceBuilder(getDefaultPackConfig(properties), mysqlDbConfig, true);
-        dataSourceBuilder.addIncludeTable("t_user_record");
+        DataSourceBuilder dataSourceBuilder = new DataSourceBuilder(getDefaultPackConfig(properties),properties, mysqlDbConfig, true);
         dataSourceBuilder.mkDir().generateFile();
     }
 
@@ -98,7 +107,6 @@ public class GenerateUtil {
      * @param properties 配置信息
      */
     private void generateCommon(Properties properties) throws Exception {
-
         CommonBuilder commonBuilder = new CommonBuilder(getDefaultPackConfig(properties), properties, true);
         commonBuilder.mkDir().generateFile();
     }

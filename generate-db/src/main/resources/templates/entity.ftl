@@ -1,11 +1,11 @@
 package ${package.entityPath}.${table.datasourceName};
 
+import lombok.Data;
+import lombok.ToString;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 <#list table.typeList as type>
     <#if type == 'BigDecimal' >
 import java.math.BigDecimal;
@@ -27,8 +27,7 @@ import java.sql.Clob;
  * @Date: ${now}
  */
 @Table(name = "${table.tableName}")
-@Getter
-@Setter
+@Data
 @ToString
 public class ${entityName} {
 
