@@ -39,15 +39,15 @@ public class GenerateUtil {
             MysqlDbConfig dbConfig = new MysqlDbConfig(url, username, password);
 
             //生成基本信息（包含包的信息，pom文件的信息）
-            generateBase(properties, dbConfig);
+//            generateBase(properties, dbConfig);
             //生成common信息
-            generateCommon(properties);
+//            generateCommon(properties);
             //生成数据库信息
             generateDb(properties, dbConfig);
             //生成controller信息
-            generateController(properties, dbConfig);
+//            generateController(properties, dbConfig);
             //生成service信息
-            generateService(properties, dbConfig);
+//            generateService(properties, dbConfig);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -87,6 +87,7 @@ public class GenerateUtil {
     private void generateDb(Properties properties, MysqlDbConfig mysqlDbConfig) throws Exception {
 
         DataSourceBuilder dataSourceBuilder = new DataSourceBuilder(getDefaultPackConfig(properties), mysqlDbConfig, true);
+        dataSourceBuilder.addIncludeTable("t_user_record");
         dataSourceBuilder.mkDir().generateFile();
     }
 
