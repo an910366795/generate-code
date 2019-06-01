@@ -40,7 +40,7 @@ public class DataSourceBuilder extends AbstractBuilder {
         this.isForceCover = isForceCover;
     }
 
-    public DataSourceBuilder(PackageConfig packageConfig,Properties properties ,MysqlDbConfig mysqlDbConfig, boolean isForceCover) {
+    public DataSourceBuilder(PackageConfig packageConfig, Properties properties, MysqlDbConfig mysqlDbConfig, boolean isForceCover) {
         this.packageConfig = packageConfig;
         this.mysqlDbConfig = mysqlDbConfig;
         this.isForceCover = isForceCover;
@@ -125,14 +125,14 @@ public class DataSourceBuilder extends AbstractBuilder {
         if (properties != null) {
             //包含的表
             String includes = (String) properties.get("db_include_table");
-            if (includes != null && includes != "") {
+            if (includes != null && !includes.equals("")) {
                 for (String table : includes.split(",")) {
                     this.addIncludeTable(table);
                 }
             }
             //排除的表
             String expects = (String) properties.get("db_expect_table");
-            if (expects != null && expects != "") {
+            if (expects != null && !expects.equals("")) {
                 for (String table : expects.split(",")) {
                     this.addExcludeTable(table);
                 }

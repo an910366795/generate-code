@@ -70,10 +70,15 @@ public class GenerateUtil {
      */
     private PackageConfig getDefaultPackConfig(Properties properties) {
         PackageConfig packageConfig = new PackageConfig();
+        //基本路径
         Object basePath = properties.get("base_path");
-
         if (basePath != null && basePath != "") {
             packageConfig.setBasePath(basePath + "");
+        }
+        //主类路径
+        Object mainPath = properties.get("main_path");
+        if (mainPath != null && mainPath != "") {
+            packageConfig.setMainPath(mainPath + "");
         }
         return packageConfig;
     }
@@ -96,7 +101,7 @@ public class GenerateUtil {
      */
     private void generateDb(Properties properties, MysqlDbConfig mysqlDbConfig) throws Exception {
 
-        DataSourceBuilder dataSourceBuilder = new DataSourceBuilder(getDefaultPackConfig(properties),properties, mysqlDbConfig, true);
+        DataSourceBuilder dataSourceBuilder = new DataSourceBuilder(getDefaultPackConfig(properties), properties, mysqlDbConfig, true);
         dataSourceBuilder.mkDir().generateFile();
     }
 
